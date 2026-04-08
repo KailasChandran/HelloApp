@@ -4,25 +4,20 @@ public class HelloApp {
         // Default value
         String name = "World";
 
-        // Check if arguments are provided
+        // Check if arguments exist
         if (args.length > 0) {
 
             StringBuilder nameBuilder = new StringBuilder();
-            boolean first = true;
 
             // Enhanced for loop
             for (String argName : args) {
-
-                if (!first) {
-                    nameBuilder.append(", ");
-                }
-
-                nameBuilder.append(argName);
-                first = false;
+                nameBuilder.append(argName).append(", ");
             }
 
-            // Assign final string
-            name = nameBuilder.toString();
+            // Remove trailing ", "
+            if (nameBuilder.length() > 0) {
+                name = nameBuilder.substring(0, nameBuilder.length() - 2);
+            }
         }
 
         // Output
