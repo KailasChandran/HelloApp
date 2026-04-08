@@ -1,29 +1,31 @@
 public class HelloApp {
     public static void main(String[] args) {
 
-        // Default name
+        // Default value
         String name = "World";
 
         // Check if arguments are provided
         if (args.length > 0) {
 
-            // Use StringBuilder to combine multiple names
             StringBuilder nameBuilder = new StringBuilder();
+            boolean first = true;
 
-            for (int i = 0; i < args.length; i++) {
-                nameBuilder.append(args[i]);
+            // Enhanced for loop
+            for (String argName : args) {
 
-                // Add comma only between names
-                if (i < args.length - 1) {
+                if (!first) {
                     nameBuilder.append(", ");
                 }
+
+                nameBuilder.append(argName);
+                first = false;
             }
 
-            // Assign combined names
+            // Assign final string
             name = nameBuilder.toString();
         }
 
-        // Display output
+        // Output
         System.out.println("Hello, " + name + "!");
     }
 }
