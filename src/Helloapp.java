@@ -1,26 +1,17 @@
 public class HelloApp {
+
     public static void main(String[] args) {
 
-        // Default value
-        String name = "World";
+        String names;
 
-        // Check if arguments exist
-        if (args.length > 0) {
-
-            StringBuilder nameBuilder = new StringBuilder();
-
-            // Enhanced for loop
-            for (String argName : args) {
-                nameBuilder.append(argName).append(", ");
-            }
-
-            // Remove trailing ", "
-            if (nameBuilder.length() > 0) {
-                name = nameBuilder.substring(0, nameBuilder.length() - 2);
-            }
+        
+        if (args.length == 0) {
+            names = "World";
+        } else {
+            names = String.join(", ", args);
         }
 
-        // Output
-        System.out.println("Hello, " + name + "!");
+    
+        System.out.println("Hello, " + names + "!");
     }
 }
